@@ -3,6 +3,15 @@
 import socket
 from common_ports import ports_and_services
 
+def get_input():
+    target = input('Enter the target IP or URL: ')
+    try:
+        socket.inet_aton(target)
+        return target
+    except socket.error:
+        return "Error: Invalid IP address"
+
+# host = get_input()
 host = "137.74.187.104"  # Sever hostname or IP address
 ports = [20, 450]  # Port range to connect to on the server
 open_ports = []
@@ -20,8 +29,6 @@ for port in range(ports[0], ports[1]):
         except Exception as error:
             #print(f"Error for port {port}: {error}")
             pass
-    
-    # return 1
 
 # generate_report(open_ports)
 port_report = {key: ports_and_services[key] for key in open_ports}
