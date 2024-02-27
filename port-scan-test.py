@@ -1,7 +1,7 @@
 # echo-client.py
 
 import socket
-from common_ports import ports_and_services
+from common_ports import ports_and_services as service
 
 def get_input():
     target = input('Enter the target IP or URL: ')
@@ -31,6 +31,6 @@ for port in range(ports[0], ports[1]):
             pass
 
 # generate_report(open_ports)
-port_report = {key: ports_and_services[key] for key in open_ports}
+port_report = {key: services[key] for key in open_ports}
 
 print(f"Open ports:\n {port_report}")
