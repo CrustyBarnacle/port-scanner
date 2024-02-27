@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import socket
 
+
 def get_open_ports(target, port_range, verbose = False):
     open_ports = []
 
     # validate URL or IP address, else return "Error: Invalid hostname" or "Error: Invalid IP address"
-    if valid_input(target): # or URL
-        # scan target:port-range
-        scan_ports(target, port_range)
+    if valid_input(target): # IP or URL
+        scan_ports(target, port_range) # scan target:port-range
     else:
         return "Error: Invalid IP address"
 
